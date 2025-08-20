@@ -10,10 +10,6 @@ import (
 // protoc -I="D:\protobuf\include" -I=".\proto" -I="D:\GIT\googleapis" -I="D:\GIT\grpc-gateway" --1c_out="swagger=1,logger=1:." example.proto
 
 func main() {
-	//f, _ := os.Open("swagger.txt")
-	//data, _ := io.ReadAll(f)
-	//swagger.SetRequired(nil, data, utils.NewLogger(slog.LevelInfo))
-
 	p := protogenOnes.NewPlugin()
 	protogen.Options{}.Run(p.Process)
 }

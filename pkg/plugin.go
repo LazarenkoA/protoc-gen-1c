@@ -8,8 +8,6 @@ import (
 	"github.com/pkg/errors"
 	"google.golang.org/protobuf/compiler/protogen"
 	"google.golang.org/protobuf/proto"
-	"google.golang.org/protobuf/runtime/protoimpl"
-	"google.golang.org/protobuf/types/descriptorpb"
 	"log/slog"
 	"os"
 	"strings"
@@ -65,11 +63,6 @@ func (p *Plugin) Process(plugin *protogen.Plugin) (err error) {
 			if err := oneC.CreateSwaggerHttpService(root, openApiData, p.logger); err != nil {
 				return errors.Wrap(err, "create swagger http service error")
 			}
-
-			//todo удалить
-			//f, _ := os.Create("swagger.yaml")
-			//f.Write(openApiData)
-			//f.Close()
 		}
 
 		// Для всех сервисов
@@ -80,50 +73,6 @@ func (p *Plugin) Process(plugin *protogen.Plugin) (err error) {
 		}
 	}
 	return nil
-}
-
-func getServiceOptions[T any](service *protogen.Service, extInfo *protoimpl.ExtensionInfo) T {
-	opts := service.Desc.Options().(*descriptorpb.ServiceOptions)
-
-	var value T
-	if proto.HasExtension(opts, extInfo) {
-		value, _ = proto.GetExtension(opts, extInfo).(T)
-	}
-
-	return value
-}
-
-func getMethodOptions[T any](method *protogen.Method, extInfo *protoimpl.ExtensionInfo) T {
-	opts := method.Desc.Options().(*descriptorpb.MethodOptions)
-
-	var value T
-	if proto.HasExtension(opts, extInfo) {
-		value, _ = proto.GetExtension(opts, extInfo).(T)
-	}
-
-	return value
-}
-
-func getFieldOptions[T any](field *protogen.Field, extInfo *protoimpl.ExtensionInfo) T {
-	opts := field.Desc.Options().(*descriptorpb.FieldOptions)
-
-	var value T
-	if proto.HasExtension(opts, extInfo) {
-		value, _ = proto.GetExtension(opts, extInfo).(T)
-	}
-
-	return value
-}
-
-func getRequiredFields(method *protogen.Method) []string {
-	var result []string
-	for _, fld := range method.Input.Fields {
-		if getFieldOptions[bool](fld, custompb.E_Required) {
-			result = append(result, fld.Desc.TextName())
-		}
-	}
-
-	return result
 }
 
 func parseParams(plugin *protogen.Plugin) map[string]string {

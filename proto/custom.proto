@@ -11,7 +11,7 @@ extend google.protobuf.FileOptions {
 }
 
 extend google.protobuf.MethodOptions {
-  CustomChecker allow = 50001;
+  repeated StatusCode codes = 50001;
 }
 
 extend google.protobuf.ServiceOptions {
@@ -22,6 +22,7 @@ extend google.protobuf.FieldOptions {
   bool required = 50001;
 }
 
-message CustomChecker {
-  repeated string allowed_roles = 1;
+message StatusCode {
+  int32 code = 1;
+  string comment = 2;
 }

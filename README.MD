@@ -1,4 +1,5 @@
 
+---
 
 ### Настройка Buf
 [buf](https://github.com/bufbuild/buf) это protobuf линтер, детектор критических изменений, который обеспечивает совместимость на уровне исходного кода или проводного интерфейса (и не только). 
@@ -10,6 +11,7 @@ version: v2
 
 deps:
   - buf.build/googleapis/googleapis
+  - buf.build/grpc-ecosystem/grpc-gateway
 
 lint:
   use:
@@ -21,6 +23,7 @@ breaking:
     - PACKAGE   # проверяет изменения в package
     - WIRE_JSON # проверяет wire-совместимость (номера, типы и т.д.)
 ```
+так же пример [buf.yaml](buf.yaml) можно посмотреть в репазитории
 
 если у вас в прото используются зависимости
 ```yaml

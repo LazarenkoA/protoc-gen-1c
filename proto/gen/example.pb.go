@@ -10,8 +10,6 @@ import (
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -24,29 +22,31 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// тестовое сообщение
-type Request struct {
+// Модель клиента
+type Customer struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	TestFld       string                 `protobuf:"bytes,1,opt,name=test_fld,json=testFld,proto3" json:"test_fld,omitempty"` // тестовое поле
-	TestFld2      *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=test_fld2,json=testFld2,proto3" json:"test_fld2,omitempty"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`       // Уникальный идентификатор клиента
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`   // Имя или название компании
+	Email         string                 `protobuf:"bytes,3,opt,name=email,proto3" json:"email,omitempty"` // Email клиента
+	Phone         string                 `protobuf:"bytes,4,opt,name=phone,proto3" json:"phone,omitempty"` // Телефон клиента
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *Request) Reset() {
-	*x = Request{}
+func (x *Customer) Reset() {
+	*x = Customer{}
 	mi := &file_example_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *Request) String() string {
+func (x *Customer) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*Request) ProtoMessage() {}
+func (*Customer) ProtoMessage() {}
 
-func (x *Request) ProtoReflect() protoreflect.Message {
+func (x *Customer) ProtoReflect() protoreflect.Message {
 	mi := &file_example_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -58,21 +58,557 @@ func (x *Request) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Request.ProtoReflect.Descriptor instead.
-func (*Request) Descriptor() ([]byte, []int) {
+// Deprecated: Use Customer.ProtoReflect.Descriptor instead.
+func (*Customer) Descriptor() ([]byte, []int) {
 	return file_example_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *Request) GetTestFld() string {
+func (x *Customer) GetId() string {
 	if x != nil {
-		return x.TestFld
+		return x.Id
 	}
 	return ""
 }
 
-func (x *Request) GetTestFld2() *timestamppb.Timestamp {
+func (x *Customer) GetName() string {
 	if x != nil {
-		return x.TestFld2
+		return x.Name
+	}
+	return ""
+}
+
+func (x *Customer) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+func (x *Customer) GetPhone() string {
+	if x != nil {
+		return x.Phone
+	}
+	return ""
+}
+
+// Запрос на создание клиента
+type CreateCustomerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`   // Имя или название компании
+	Email         string                 `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"` // Email клиента
+	Phone         string                 `protobuf:"bytes,3,opt,name=phone,proto3" json:"phone,omitempty"` // Телефон клиента
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateCustomerRequest) Reset() {
+	*x = CreateCustomerRequest{}
+	mi := &file_example_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateCustomerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateCustomerRequest) ProtoMessage() {}
+
+func (x *CreateCustomerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_example_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateCustomerRequest.ProtoReflect.Descriptor instead.
+func (*CreateCustomerRequest) Descriptor() ([]byte, []int) {
+	return file_example_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *CreateCustomerRequest) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *CreateCustomerRequest) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+func (x *CreateCustomerRequest) GetPhone() string {
+	if x != nil {
+		return x.Phone
+	}
+	return ""
+}
+
+// Ответ на создание клиента
+type CreateCustomerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Customer      *Customer              `protobuf:"bytes,1,opt,name=customer,proto3" json:"customer,omitempty"` // Созданный клиент
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateCustomerResponse) Reset() {
+	*x = CreateCustomerResponse{}
+	mi := &file_example_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateCustomerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateCustomerResponse) ProtoMessage() {}
+
+func (x *CreateCustomerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_example_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateCustomerResponse.ProtoReflect.Descriptor instead.
+func (*CreateCustomerResponse) Descriptor() ([]byte, []int) {
+	return file_example_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *CreateCustomerResponse) GetCustomer() *Customer {
+	if x != nil {
+		return x.Customer
+	}
+	return nil
+}
+
+// Запрос на получение клиента
+type GetCustomerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"` // ID клиента
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCustomerRequest) Reset() {
+	*x = GetCustomerRequest{}
+	mi := &file_example_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCustomerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCustomerRequest) ProtoMessage() {}
+
+func (x *GetCustomerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_example_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCustomerRequest.ProtoReflect.Descriptor instead.
+func (*GetCustomerRequest) Descriptor() ([]byte, []int) {
+	return file_example_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetCustomerRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+// Запрос на список клиентов (с пагинацией)
+type ListCustomersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PageSize      int32                  `protobuf:"varint,1,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`   // Количество элементов на странице
+	PageToken     string                 `protobuf:"bytes,2,opt,name=page_token,json=pageToken,proto3" json:"page_token,omitempty"` // Токен для получения следующей страницы
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListCustomersRequest) Reset() {
+	*x = ListCustomersRequest{}
+	mi := &file_example_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListCustomersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListCustomersRequest) ProtoMessage() {}
+
+func (x *ListCustomersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_example_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListCustomersRequest.ProtoReflect.Descriptor instead.
+func (*ListCustomersRequest) Descriptor() ([]byte, []int) {
+	return file_example_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *ListCustomersRequest) GetPageSize() int32 {
+	if x != nil {
+		return x.PageSize
+	}
+	return 0
+}
+
+func (x *ListCustomersRequest) GetPageToken() string {
+	if x != nil {
+		return x.PageToken
+	}
+	return ""
+}
+
+// Ответ со списком клиентов
+type ListCustomersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Customers     []*Customer            `protobuf:"bytes,1,rep,name=customers,proto3" json:"customers,omitempty"`                                // Список клиентов
+	NextPageToken string                 `protobuf:"bytes,2,opt,name=next_page_token,json=nextPageToken,proto3" json:"next_page_token,omitempty"` // Токен для следующей страницы
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListCustomersResponse) Reset() {
+	*x = ListCustomersResponse{}
+	mi := &file_example_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListCustomersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListCustomersResponse) ProtoMessage() {}
+
+func (x *ListCustomersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_example_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListCustomersResponse.ProtoReflect.Descriptor instead.
+func (*ListCustomersResponse) Descriptor() ([]byte, []int) {
+	return file_example_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *ListCustomersResponse) GetCustomers() []*Customer {
+	if x != nil {
+		return x.Customers
+	}
+	return nil
+}
+
+func (x *ListCustomersResponse) GetNextPageToken() string {
+	if x != nil {
+		return x.NextPageToken
+	}
+	return ""
+}
+
+// Модель сделки
+type Deal struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`                                   // Уникальный ID сделки
+	CustomerId    string                 `protobuf:"bytes,2,opt,name=customer_id,json=customerId,proto3" json:"customer_id,omitempty"` // ID клиента, с которым связана сделка
+	Title         string                 `protobuf:"bytes,3,opt,name=title,proto3" json:"title,omitempty"`                             // Название сделки
+	Amount        float64                `protobuf:"fixed64,4,opt,name=amount,proto3" json:"amount,omitempty"`                         // Сумма сделки
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Deal) Reset() {
+	*x = Deal{}
+	mi := &file_example_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Deal) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Deal) ProtoMessage() {}
+
+func (x *Deal) ProtoReflect() protoreflect.Message {
+	mi := &file_example_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Deal.ProtoReflect.Descriptor instead.
+func (*Deal) Descriptor() ([]byte, []int) {
+	return file_example_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *Deal) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *Deal) GetCustomerId() string {
+	if x != nil {
+		return x.CustomerId
+	}
+	return ""
+}
+
+func (x *Deal) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *Deal) GetAmount() float64 {
+	if x != nil {
+		return x.Amount
+	}
+	return 0
+}
+
+// Запрос на создание сделки
+type CreateDealRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CustomerId    string                 `protobuf:"bytes,1,opt,name=customer_id,json=customerId,proto3" json:"customer_id,omitempty"` // ID клиента
+	Title         string                 `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`                             // Название сделки
+	Amount        float64                `protobuf:"fixed64,3,opt,name=amount,proto3" json:"amount,omitempty"`                         // Сумма сделки
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateDealRequest) Reset() {
+	*x = CreateDealRequest{}
+	mi := &file_example_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateDealRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateDealRequest) ProtoMessage() {}
+
+func (x *CreateDealRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_example_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateDealRequest.ProtoReflect.Descriptor instead.
+func (*CreateDealRequest) Descriptor() ([]byte, []int) {
+	return file_example_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *CreateDealRequest) GetCustomerId() string {
+	if x != nil {
+		return x.CustomerId
+	}
+	return ""
+}
+
+func (x *CreateDealRequest) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *CreateDealRequest) GetAmount() float64 {
+	if x != nil {
+		return x.Amount
+	}
+	return 0
+}
+
+// Ответ на создание сделки
+type CreateDealResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Deal          *Deal                  `protobuf:"bytes,1,opt,name=deal,proto3" json:"deal,omitempty"` // Созданная сделка
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateDealResponse) Reset() {
+	*x = CreateDealResponse{}
+	mi := &file_example_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateDealResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateDealResponse) ProtoMessage() {}
+
+func (x *CreateDealResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_example_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateDealResponse.ProtoReflect.Descriptor instead.
+func (*CreateDealResponse) Descriptor() ([]byte, []int) {
+	return file_example_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *CreateDealResponse) GetDeal() *Deal {
+	if x != nil {
+		return x.Deal
+	}
+	return nil
+}
+
+// Запрос на список сделок клиента
+type ListDealsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CustomerId    string                 `protobuf:"bytes,1,opt,name=customer_id,json=customerId,proto3" json:"customer_id,omitempty"` // ID клиента
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListDealsRequest) Reset() {
+	*x = ListDealsRequest{}
+	mi := &file_example_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListDealsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListDealsRequest) ProtoMessage() {}
+
+func (x *ListDealsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_example_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListDealsRequest.ProtoReflect.Descriptor instead.
+func (*ListDealsRequest) Descriptor() ([]byte, []int) {
+	return file_example_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *ListDealsRequest) GetCustomerId() string {
+	if x != nil {
+		return x.CustomerId
+	}
+	return ""
+}
+
+// Ответ со списком сделок
+type ListDealsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Deals         []*Deal                `protobuf:"bytes,1,rep,name=deals,proto3" json:"deals,omitempty"` // Список сделок клиента
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListDealsResponse) Reset() {
+	*x = ListDealsResponse{}
+	mi := &file_example_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListDealsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListDealsResponse) ProtoMessage() {}
+
+func (x *ListDealsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_example_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListDealsResponse.ProtoReflect.Descriptor instead.
+func (*ListDealsResponse) Descriptor() ([]byte, []int) {
+	return file_example_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *ListDealsResponse) GetDeals() []*Deal {
+	if x != nil {
+		return x.Deals
 	}
 	return nil
 }
@@ -81,13 +617,55 @@ var File_example_proto protoreflect.FileDescriptor
 
 const file_example_proto_rawDesc = "" +
 	"\n" +
-	"\rexample.proto\x12\x04test\x1a\fcustom.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"c\n" +
-	"\aRequest\x12\x19\n" +
-	"\btest_fld\x18\x01 \x01(\tR\atestFld\x12=\n" +
-	"\ttest_fld2\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampB\x04\x88\xb5\x18\x01R\btestFld22\xb1\x01\n" +
-	"\x0fTestHTTPService\x12G\n" +
-	"\bTestPOST\x12\r.test.Request\x1a\x16.google.protobuf.Empty\"\x14\x82\xd3\xe4\x93\x02\x0e\"\f/api/v1/test\x12K\n" +
-	"\aTestGET\x12\r.test.Request\x1a\x16.google.protobuf.Empty\"\x19\x82\xd3\xe4\x93\x02\x13\x12\x11/api/{v}/GET_test\x1a\b\x8a\xb5\x18\x04testB\x0f\x8a\xb5\x18\x04D:\\1Z\x05./genb\x06proto3"
+	"\rexample.proto\x12\x04test\x1a\fcustom.proto\x1a\x1cgoogle/api/annotations.proto\"f\n" +
+	"\bCustomer\x12\x14\n" +
+	"\x02id\x18\x01 \x01(\tB\x04\x88\xb5\x18\x01R\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1a\n" +
+	"\x05email\x18\x03 \x01(\tB\x04\x88\xb5\x18\x01R\x05email\x12\x14\n" +
+	"\x05phone\x18\x04 \x01(\tR\x05phone\"c\n" +
+	"\x15CreateCustomerRequest\x12\x18\n" +
+	"\x04name\x18\x01 \x01(\tB\x04\x88\xb5\x18\x01R\x04name\x12\x1a\n" +
+	"\x05email\x18\x02 \x01(\tB\x04\x88\xb5\x18\x01R\x05email\x12\x14\n" +
+	"\x05phone\x18\x03 \x01(\tR\x05phone\"J\n" +
+	"\x16CreateCustomerResponse\x120\n" +
+	"\bcustomer\x18\x01 \x01(\v2\x0e.test.CustomerB\x04\x88\xb5\x18\x01R\bcustomer\"*\n" +
+	"\x12GetCustomerRequest\x12\x14\n" +
+	"\x02id\x18\x01 \x01(\tB\x04\x88\xb5\x18\x01R\x02id\"X\n" +
+	"\x14ListCustomersRequest\x12\x1b\n" +
+	"\tpage_size\x18\x01 \x01(\x05R\bpageSize\x12#\n" +
+	"\n" +
+	"page_token\x18\x02 \x01(\tB\x04\x88\xb5\x18\x01R\tpageToken\"s\n" +
+	"\x15ListCustomersResponse\x122\n" +
+	"\tcustomers\x18\x01 \x03(\v2\x0e.test.CustomerB\x04\x88\xb5\x18\x01R\tcustomers\x12&\n" +
+	"\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\"q\n" +
+	"\x04Deal\x12\x14\n" +
+	"\x02id\x18\x01 \x01(\tB\x04\x88\xb5\x18\x01R\x02id\x12%\n" +
+	"\vcustomer_id\x18\x02 \x01(\tB\x04\x88\xb5\x18\x01R\n" +
+	"customerId\x12\x14\n" +
+	"\x05title\x18\x03 \x01(\tR\x05title\x12\x16\n" +
+	"\x06amount\x18\x04 \x01(\x01R\x06amount\"h\n" +
+	"\x11CreateDealRequest\x12%\n" +
+	"\vcustomer_id\x18\x01 \x01(\tB\x04\x88\xb5\x18\x01R\n" +
+	"customerId\x12\x14\n" +
+	"\x05title\x18\x02 \x01(\tR\x05title\x12\x16\n" +
+	"\x06amount\x18\x03 \x01(\x01R\x06amount\":\n" +
+	"\x12CreateDealResponse\x12$\n" +
+	"\x04deal\x18\x01 \x01(\v2\n" +
+	".test.DealB\x04\x88\xb5\x18\x01R\x04deal\"9\n" +
+	"\x10ListDealsRequest\x12%\n" +
+	"\vcustomer_id\x18\x01 \x01(\tB\x04\x88\xb5\x18\x01R\n" +
+	"customerId\"5\n" +
+	"\x11ListDealsResponse\x12 \n" +
+	"\x05deals\x18\x01 \x03(\v2\n" +
+	".test.DealR\x05deals2\xbc\x02\n" +
+	"\x0fCustomerService\x12e\n" +
+	"\x0eCreateCustomer\x12\x1b.test.CreateCustomerRequest\x1a\x1c.test.CreateCustomerResponse\"\x18\x82\xd3\xe4\x93\x02\x12:\x01*\"\r/v1/customers\x12S\n" +
+	"\vGetCustomer\x12\x18.test.GetCustomerRequest\x1a\x0e.test.Customer\"\x1a\x82\xd3\xe4\x93\x02\x14\x12\x12/v1/customers/{id}\x12_\n" +
+	"\rListCustomers\x12\x1a.test.ListCustomersRequest\x1a\x1b.test.ListCustomersResponse\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/v1/customers\x1a\f\x8a\xb5\x18\bcustomer2\xb2\x02\n" +
+	"\vDealService\x12U\n" +
+	"\n" +
+	"CreateDeal\x12\x17.test.CreateDealRequest\x1a\x18.test.CreateDealResponse\"\x14\x82\xd3\xe4\x93\x02\x0e:\x01*\"\t/v1/deals\x12\xc1\x01\n" +
+	"\tListDeals\x12\x16.test.ListDealsRequest\x1a\x17.test.ListDealsResponse\"\x82\x01\x8a\xb5\x181\b\x90\x03\x12,Не корректные параметры\x8a\xb5\x18 \b\xf4\x03\x12\x1bОшибка сервера\x82\xd3\xe4\x93\x02#\x12!/v1/customers/{customer_id}/deals\x1a\b\x8a\xb5\x18\x04dealB\x0f\x8a\xb5\x18\x04D:\\1Z\x05./genb\x06proto3"
 
 var (
 	file_example_proto_rawDescOnce sync.Once
@@ -101,23 +679,40 @@ func file_example_proto_rawDescGZIP() []byte {
 	return file_example_proto_rawDescData
 }
 
-var file_example_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_example_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_example_proto_goTypes = []any{
-	(*Request)(nil),               // 0: test.Request
-	(*timestamppb.Timestamp)(nil), // 1: google.protobuf.Timestamp
-	(*emptypb.Empty)(nil),         // 2: google.protobuf.Empty
+	(*Customer)(nil),               // 0: test.Customer
+	(*CreateCustomerRequest)(nil),  // 1: test.CreateCustomerRequest
+	(*CreateCustomerResponse)(nil), // 2: test.CreateCustomerResponse
+	(*GetCustomerRequest)(nil),     // 3: test.GetCustomerRequest
+	(*ListCustomersRequest)(nil),   // 4: test.ListCustomersRequest
+	(*ListCustomersResponse)(nil),  // 5: test.ListCustomersResponse
+	(*Deal)(nil),                   // 6: test.Deal
+	(*CreateDealRequest)(nil),      // 7: test.CreateDealRequest
+	(*CreateDealResponse)(nil),     // 8: test.CreateDealResponse
+	(*ListDealsRequest)(nil),       // 9: test.ListDealsRequest
+	(*ListDealsResponse)(nil),      // 10: test.ListDealsResponse
 }
 var file_example_proto_depIdxs = []int32{
-	1, // 0: test.Request.test_fld2:type_name -> google.protobuf.Timestamp
-	0, // 1: test.TestHTTPService.TestPOST:input_type -> test.Request
-	0, // 2: test.TestHTTPService.TestGET:input_type -> test.Request
-	2, // 3: test.TestHTTPService.TestPOST:output_type -> google.protobuf.Empty
-	2, // 4: test.TestHTTPService.TestGET:output_type -> google.protobuf.Empty
-	3, // [3:5] is the sub-list for method output_type
-	1, // [1:3] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	0,  // 0: test.CreateCustomerResponse.customer:type_name -> test.Customer
+	0,  // 1: test.ListCustomersResponse.customers:type_name -> test.Customer
+	6,  // 2: test.CreateDealResponse.deal:type_name -> test.Deal
+	6,  // 3: test.ListDealsResponse.deals:type_name -> test.Deal
+	1,  // 4: test.CustomerService.CreateCustomer:input_type -> test.CreateCustomerRequest
+	3,  // 5: test.CustomerService.GetCustomer:input_type -> test.GetCustomerRequest
+	4,  // 6: test.CustomerService.ListCustomers:input_type -> test.ListCustomersRequest
+	7,  // 7: test.DealService.CreateDeal:input_type -> test.CreateDealRequest
+	9,  // 8: test.DealService.ListDeals:input_type -> test.ListDealsRequest
+	2,  // 9: test.CustomerService.CreateCustomer:output_type -> test.CreateCustomerResponse
+	0,  // 10: test.CustomerService.GetCustomer:output_type -> test.Customer
+	5,  // 11: test.CustomerService.ListCustomers:output_type -> test.ListCustomersResponse
+	8,  // 12: test.DealService.CreateDeal:output_type -> test.CreateDealResponse
+	10, // 13: test.DealService.ListDeals:output_type -> test.ListDealsResponse
+	9,  // [9:14] is the sub-list for method output_type
+	4,  // [4:9] is the sub-list for method input_type
+	4,  // [4:4] is the sub-list for extension type_name
+	4,  // [4:4] is the sub-list for extension extendee
+	0,  // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_example_proto_init() }
@@ -132,9 +727,9 @@ func file_example_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_example_proto_rawDesc), len(file_example_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   1,
+			NumMessages:   11,
 			NumExtensions: 0,
-			NumServices:   1,
+			NumServices:   2,
 		},
 		GoTypes:           file_example_proto_goTypes,
 		DependencyIndexes: file_example_proto_depIdxs,

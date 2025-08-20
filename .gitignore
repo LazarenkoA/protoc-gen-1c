@@ -18,3 +18,4 @@ lib
 vendor/
 *.log
 swagger/swaggerUI/swagger-ui
+swagger.yaml

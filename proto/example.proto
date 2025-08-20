@@ -56,6 +56,15 @@ service DealService {
     option (google.api.http) = {
       get: "/v1/customers/{customer_id}/deals"
     };
+
+    option (codes) = {
+      code: 400
+      comment: "Не корректные параметры"
+    };
+    option (codes) = {
+      code: 500
+      comment: "Ошибка сервера"
+    };
   }
 }
 
@@ -71,8 +80,8 @@ message Customer {
 
 // Запрос на создание клиента
 message CreateCustomerRequest {
-  string name = 1;    // Имя или название компании
-  string email = 2;   // Email клиента
+  string name = 1 [(required) = true];    // Имя или название компании
+  string email = 2 [(required) = true];   // Email клиента
   string phone = 3;   // Телефон клиента
 }
 
@@ -89,7 +98,7 @@ message GetCustomerRequest {
 // Запрос на список клиентов (с пагинацией)
 message ListCustomersRequest {
   int32 page_size = 1;    // Количество элементов на странице
-  string page_token = 2;  // Токен для получения следующей страницы
+  string page_token = 2 [(required) = true];  // Токен для получения следующей страницы
 }
 
 // Ответ со списком клиентов

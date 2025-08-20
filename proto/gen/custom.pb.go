@@ -22,27 +22,28 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type CustomChecker struct {
+type StatusCode struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	AllowedRoles  []string               `protobuf:"bytes,1,rep,name=allowed_roles,json=allowedRoles,proto3" json:"allowed_roles,omitempty"`
+	Code          int32                  `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
+	Comment       string                 `protobuf:"bytes,2,opt,name=comment,proto3" json:"comment,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *CustomChecker) Reset() {
-	*x = CustomChecker{}
+func (x *StatusCode) Reset() {
+	*x = StatusCode{}
 	mi := &file_custom_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *CustomChecker) String() string {
+func (x *StatusCode) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CustomChecker) ProtoMessage() {}
+func (*StatusCode) ProtoMessage() {}
 
-func (x *CustomChecker) ProtoReflect() protoreflect.Message {
+func (x *StatusCode) ProtoReflect() protoreflect.Message {
 	mi := &file_custom_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -54,16 +55,23 @@ func (x *CustomChecker) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CustomChecker.ProtoReflect.Descriptor instead.
-func (*CustomChecker) Descriptor() ([]byte, []int) {
+// Deprecated: Use StatusCode.ProtoReflect.Descriptor instead.
+func (*StatusCode) Descriptor() ([]byte, []int) {
 	return file_custom_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *CustomChecker) GetAllowedRoles() []string {
+func (x *StatusCode) GetCode() int32 {
 	if x != nil {
-		return x.AllowedRoles
+		return x.Code
 	}
-	return nil
+	return 0
+}
+
+func (x *StatusCode) GetComment() string {
+	if x != nil {
+		return x.Comment
+	}
+	return ""
 }
 
 var file_custom_proto_extTypes = []protoimpl.ExtensionInfo{
@@ -77,10 +85,10 @@ var file_custom_proto_extTypes = []protoimpl.ExtensionInfo{
 	},
 	{
 		ExtendedType:  (*descriptorpb.MethodOptions)(nil),
-		ExtensionType: (*CustomChecker)(nil),
+		ExtensionType: ([]*StatusCode)(nil),
 		Field:         50001,
-		Name:          "test.allow",
-		Tag:           "bytes,50001,opt,name=allow",
+		Name:          "test.codes",
+		Tag:           "bytes,50001,rep,name=codes",
 		Filename:      "custom.proto",
 	},
 	{
@@ -109,8 +117,8 @@ var (
 
 // Extension fields to descriptorpb.MethodOptions.
 var (
-	// optional test.CustomChecker allow = 50001;
-	E_Allow = &file_custom_proto_extTypes[1]
+	// repeated test.StatusCode codes = 50001;
+	E_Codes = &file_custom_proto_extTypes[1]
 )
 
 // Extension fields to descriptorpb.ServiceOptions.
@@ -129,11 +137,13 @@ var File_custom_proto protoreflect.FileDescriptor
 
 const file_custom_proto_rawDesc = "" +
 	"\n" +
-	"\fcustom.proto\x12\x04test\x1a google/protobuf/descriptor.proto\"4\n" +
-	"\rCustomChecker\x12#\n" +
-	"\rallowed_roles\x18\x01 \x03(\tR\fallowedRoles:S\n" +
-	"\x15configuration_catalog\x12\x1c.google.protobuf.FileOptions\x18ц\x03 \x01(\tR\x14configurationCatalog:K\n" +
-	"\x05allow\x12\x1e.google.protobuf.MethodOptions\x18ц\x03 \x01(\v2\x13.test.CustomCheckerR\x05allow:<\n" +
+	"\fcustom.proto\x12\x04test\x1a google/protobuf/descriptor.proto\":\n" +
+	"\n" +
+	"StatusCode\x12\x12\n" +
+	"\x04code\x18\x01 \x01(\x05R\x04code\x12\x18\n" +
+	"\acomment\x18\x02 \x01(\tR\acomment:S\n" +
+	"\x15configuration_catalog\x12\x1c.google.protobuf.FileOptions\x18ц\x03 \x01(\tR\x14configurationCatalog:H\n" +
+	"\x05codes\x12\x1e.google.protobuf.MethodOptions\x18ц\x03 \x03(\v2\x10.test.StatusCodeR\x05codes:<\n" +
 	"\bbase_url\x12\x1f.google.protobuf.ServiceOptions\x18ц\x03 \x01(\tR\abaseUrl:;\n" +
 	"\brequired\x12\x1d.google.protobuf.FieldOptions\x18ц\x03 \x01(\bR\brequiredB\aZ\x05./genb\x06proto3"
 
@@ -151,7 +161,7 @@ func file_custom_proto_rawDescGZIP() []byte {
 
 var file_custom_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_custom_proto_goTypes = []any{
-	(*CustomChecker)(nil),               // 0: test.CustomChecker
+	(*StatusCode)(nil),                  // 0: test.StatusCode
 	(*descriptorpb.FileOptions)(nil),    // 1: google.protobuf.FileOptions
 	(*descriptorpb.MethodOptions)(nil),  // 2: google.protobuf.MethodOptions
 	(*descriptorpb.ServiceOptions)(nil), // 3: google.protobuf.ServiceOptions
@@ -159,10 +169,10 @@ var file_custom_proto_goTypes = []any{
 }
 var file_custom_proto_depIdxs = []int32{
 	1, // 0: test.configuration_catalog:extendee -> google.protobuf.FileOptions
-	2, // 1: test.allow:extendee -> google.protobuf.MethodOptions
+	2, // 1: test.codes:extendee -> google.protobuf.MethodOptions
 	3, // 2: test.base_url:extendee -> google.protobuf.ServiceOptions
 	4, // 3: test.required:extendee -> google.protobuf.FieldOptions
-	0, // 4: test.allow:type_name -> test.CustomChecker
+	0, // 4: test.codes:type_name -> test.StatusCode
 	5, // [5:5] is the sub-list for method output_type
 	5, // [5:5] is the sub-list for method input_type
 	4, // [4:5] is the sub-list for extension type_name

@@ -1,18 +1,16 @@
-version: v1
-
-# Определяем корень модуля, где лежат наши .proto
-# Обычно это ./proto, если прото-файлы собраны в отдельной папке
-# Если у тебя файлы лежат прямо в корне — пиши "."
-modules:
-  - path: proto
+version: v2
 
 deps:
   - buf.build/googleapis/googleapis
-
+  - buf.build/grpc-ecosystem/grpc-gateway
 
 lint:
   use:
     - DEFAULT  # базовый набор линтинга: стиль, порядок и т.п.
+
+build:
+  roots:
+    - proto
 
 breaking:
   use:

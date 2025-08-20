@@ -27,7 +27,7 @@ func CreateSwaggerHttpService(root string, openApiData []byte, log *utils.Logger
 	service := &models.Service{
 		Name:    "Swagger",
 		BaseUrl: "swagger",
-		Methods: []models.ServiceMethod{
+		Methods: []*models.ServiceMethod{
 			{
 				Name:       methodName,
 				HttpMethod: http.MethodGet,
@@ -67,19 +67,14 @@ func CreateSwaggerHttpService(root string, openApiData []byte, log *utils.Logger
 func CommonModules(root string, name string, service *models.Service, log *utils.Logger) error {
 	log.Info("create common modules")
 
-	dir := filepath.Join(root, "CommonModules", name)
-	confFile := filepath.Join(root, "CommonModules", fmt.Sprintf("%s.xml", name))
-
-	// удаляем старые файлы (для случаев перепубликации)
-	os.Remove(confFile)
-	os.RemoveAll(dir)
+	confFile, dir := prepareDirectoryStruct(filepath.Join(root, "CommonModules"), name, false)
+	bslPath := filepath.Join(dir, "Ext", "Module.bsl")
+	if _, err := os.Stat(bslPath); err == nil {
+		return nil // что б не перетирать
+	}
 
 	m, err := newCommonModule(root, name)
 	if err != nil {
-		return err
-	}
-
-	if err := os.MkdirAll(filepath.Join(dir, "Ext"), os.ModeDir); err != nil {
 		return err
 	}
 
@@ -88,7 +83,7 @@ func CommonModules(root string, name string, service *models.Service, log *utils
 		return errors.Wrap(err, "storeMetaDataObject")
 	}
 
-	f, _ := os.Create(filepath.Join(dir, "Ext", "Module.bsl"))
+	f, _ := os.Create(bslPath)
 
 	builder := strings.Builder{}
 
@@ -97,6 +92,9 @@ func CommonModules(root string, name string, service *models.Service, log *utils
 		content := getCommonModuleContent(&HandlerInfo{
 			HandlerName: method.Name,
 			ServiceName: service.Name,
+			QueryParams: method.QueryParams,
+			PathParams:  method.PathParams,
+			BodyParams:  method.BodyParams,
 		}, log)
 
 		builder.WriteString(content)
@@ -111,19 +109,10 @@ func CommonModules(root string, name string, service *models.Service, log *utils
 func CommonTemplate(root, name string, data []byte, log *utils.Logger) error {
 	log.Info("create common template")
 
-	dir := filepath.Join(root, "CommonTemplates", name)
-	confFile := filepath.Join(root, "CommonTemplates", fmt.Sprintf("%s.xml", name))
-
-	// удаляем старые файлы (для случаев перепубликации)
-	os.Remove(confFile)
-	os.RemoveAll(dir)
+	confFile, dir := prepareDirectoryStruct(filepath.Join(root, "CommonTemplates"), name, true)
 
 	tmpl, err := newCommonTemplate(root, name)
 	if err != nil {
-		return err
-	}
-
-	if err := os.MkdirAll(filepath.Join(dir, "Ext"), os.ModeDir); err != nil {
 		return err
 	}
 
@@ -167,11 +156,15 @@ func CreateHttpService(root string, service *models.Service, log *utils.Logger) 
 		builder.WriteString(content)
 		builder.WriteString("\n\n")
 
-		content = checkFields(&HandlerInfo{
-			HandlerName:    method.Name,
-			ServiceName:    service.Name,
-			RequiredFields: method.RequiredFields,
-			Funcs:          map[string]any{"join": strings.Join},
+		content = checkRequestFields(&HandlerInfo{
+			HandlerName:               method.Name,
+			ServiceName:               service.Name,
+			RequiredQueryParamsParams: method.RequiredQueryParamsParams,
+			RequiredBodyParams:        method.RequiredBodyParams,
+			BodyParams:                method.BodyParams,
+			QueryParams:               method.QueryParams,
+			PathParams:                method.PathParams,
+			Funcs:                     map[string]any{"join": strings.Join},
 		}, log)
 		builder.WriteString(content)
 		builder.WriteString("\n")
@@ -186,8 +179,18 @@ func CreateHttpService(root string, service *models.Service, log *utils.Logger) 
 	return CommonModules(root, fmt.Sprintf("%sПереопределяемый", service.Name), service, log)
 }
 
-func prepareDirectoryStruct(rewrite bool) {
+func prepareDirectoryStruct(root, name string, rewrite bool) (string, string) {
+	newDir := filepath.Join(root, name)
+	confFile := filepath.Join(root, fmt.Sprintf("%s.xml", name))
 
+	if rewrite {
+		_ = os.Remove(confFile)
+		_ = os.RemoveAll(newDir)
+	}
+
+	_ = os.MkdirAll(filepath.Join(newDir, "Ext"), os.ModeDir)
+
+	return confFile, newDir
 }
 
 // createHttpService создает сервис без обработчиков
@@ -197,20 +200,11 @@ func createHttpService(root string, service *models.Service, log *utils.Logger) 
 		return "", err
 	}
 
-	httpServicesDir := filepath.Join(root, "HTTPServices", service.Name)
-	confFile := filepath.Join(root, "HTTPServices", fmt.Sprintf("%s.xml", service.Name))
-
-	// удаляем старые файлы (для случаев перепубликации)
-	os.Remove(confFile)
-	os.RemoveAll(httpServicesDir)
+	confFile, httpServicesDir := prepareDirectoryStruct(filepath.Join(root, "HTTPServices"), service.Name, true)
 
 	log.Debug("store metaDataObject", "confFile", confFile)
 	if err := storeMetaDataObject(srv, confFile); err != nil {
 		return "", errors.Wrap(err, "storeMetaDataObject")
-	}
-
-	if err := os.MkdirAll(filepath.Join(httpServicesDir, "Ext"), os.ModeDir); err != nil {
-		return "", err
 	}
 
 	return httpServicesDir, nil
@@ -399,7 +393,7 @@ func registerMetaObject(root, path, name string) error {
 
 func appendMethod(httpService *models.HTTPService, service *models.Service) {
 	// группируем по url
-	methodsByURL := lo.GroupBy(service.Methods, func(item models.ServiceMethod) string {
+	methodsByURL := lo.GroupBy(service.Methods, func(item *models.ServiceMethod) string {
 		return item.Url
 	})
 

@@ -10,12 +10,16 @@ import (
 )
 
 type HandlerInfo struct {
-	Method         string
-	HandlerName    string
-	ServiceName    string
-	RequiredFields []string
-	TmplName       string
-	Funcs          template.FuncMap
+	Method                    string
+	HandlerName               string
+	ServiceName               string
+	RequiredBodyParams        []string
+	RequiredQueryParamsParams []string
+	BodyParams                []string // параметры которые передаются через тело запроса в жсоне
+	QueryParams               []string // параметры строки запроса /v1/customers?page=10&page_size=20
+	PathParams                []string // параметры пути запроса /v1/customers/{id}
+	TmplName                  string
+	Funcs                     template.FuncMap
 }
 
 func getCommonModuleContent(info *HandlerInfo, log *utils.Logger) string {
@@ -45,6 +49,24 @@ func swaggerHandler(info *HandlerInfo, log *utils.Logger) string {
 	return content
 }
 
+func checkRequestFields(info *HandlerInfo, log *utils.Logger) string {
+	content, err := executeTemplate(info, "oneC/templates/template_request_check")
+	if err != nil {
+		log.Error(err.Error(), "template_name", "template_request_check")
+	}
+
+	return content
+}
+
+func checkResponseFields(info *HandlerInfo, log *utils.Logger) string {
+	content, err := executeTemplate(info, "oneC/templates/template_response_check")
+	if err != nil {
+		log.Error(err.Error(), "template_name", "template_response_check")
+	}
+
+	return content
+}
+
 func executeTemplate(info *HandlerInfo, tmplPath string) (string, error) {
 	tmplFile, err := os.Open(tmplPath)
 	if err != nil {
@@ -64,14 +86,6 @@ func executeTemplate(info *HandlerInfo, tmplPath string) (string, error) {
 	}
 
 	return sb.String(), nil
-}
-
-func checkFields(info *HandlerInfo, log *utils.Logger) string {
-	content, err := executeTemplate(info, "oneC/templates/template_required_check")
-	if err != nil {
-		log.Error(err.Error(), "template_name", "template_required_check")
-	}
-	return content
 }
 
 // boilerplate вспомогательные функции которые нужны каждому http сервису
