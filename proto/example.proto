@@ -8,13 +8,13 @@ import "google/api/annotations.proto";
 //import "google/protobuf/timestamp.proto"; // для даты время например google.protobuf.Timestamp date = 1;
 
 option go_package = "./gen";
-option (configuration_catalog)  = "D:\\1";
+option (configuration_catalog)  = "D:\\1"; // путь к каталогу с выгруженной конфигурацией (выгруженной в файлы)
 
 // ===== Сервисы =====
 
 // Сервис для работы с клиентами
 service CustomerService {
-  option (base_url) = "customer";
+  option (base_url) = "customer"; // это значение будет установлено в свойство "Корневой URL" http сервиса
 
   // Создать клиента
   rpc CreateCustomer (CreateCustomerRequest) returns (CreateCustomerResponse) {
@@ -41,7 +41,7 @@ service CustomerService {
 
 // Сервис для работы со сделками
 service DealService {
-  option (base_url) = "deal";
+  option (base_url) = "deal"; // это значение будет установлено в свойство "Корневой URL" http сервиса
 
   // Создать сделку
   rpc CreateDeal (CreateDealRequest) returns (CreateDealResponse) {
@@ -57,6 +57,7 @@ service DealService {
       get: "/v1/customers/{customer_id}/deals"
     };
 
+    // 200й указывать не нужно, только дополнительные
     option (codes) = {
       code: 400
       comment: "Не корректные параметры"
@@ -72,7 +73,7 @@ service DealService {
 
 // Модель клиента
 message Customer {
-  string id = 1 [(required) = true];      // Уникальный идентификатор клиента
+  string id = 1 [(required) = true];      // Уникальный идентификатор клиента 
   string name = 2;    // Имя или название компании
   string email = 3 [(required) = true];   // Email клиента
   string phone = 4;   // Телефон клиента

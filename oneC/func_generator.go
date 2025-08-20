@@ -19,6 +19,7 @@ type HandlerInfo struct {
 	QueryParams               []string // параметры строки запроса /v1/customers?page=10&page_size=20
 	PathParams                []string // параметры пути запроса /v1/customers/{id}
 	TmplName                  string
+	RespCodes                 map[int32]string
 	Funcs                     template.FuncMap
 }
 

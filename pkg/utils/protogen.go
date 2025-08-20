@@ -80,6 +80,17 @@ func GetRequiredFields(method *protogen.Method) []string {
 	return result
 }
 
+func GetRespCodes(method *protogen.Method) map[int32]string {
+	result := map[int32]string{}
+
+	codes := GetMethodOptions[[]*custompb.StatusCode](method, custompb.E_Codes)
+	for _, cod := range codes {
+		result[cod.Code] = cod.Comment
+	}
+
+	return result
+}
+
 func GetBodyParams(method *protogen.Method, body string) []string {
 	var result []string
 

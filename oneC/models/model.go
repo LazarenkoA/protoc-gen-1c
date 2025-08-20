@@ -9,6 +9,7 @@ type ServiceMethod struct {
 	BodyParams                []string // параметры которые передаются через тело запроса в жсоне
 	QueryParams               []string // параметры строки запроса /v1/customers?page=10&page_size=20
 	PathParams                []string // параметры пути запроса /v1/customers/{id}
+	RespCodes                 map[int32]string
 }
 
 type Service struct {

@@ -95,6 +95,7 @@ func CommonModules(root string, name string, service *models.Service, log *utils
 			QueryParams: method.QueryParams,
 			PathParams:  method.PathParams,
 			BodyParams:  method.BodyParams,
+			RespCodes:   method.RespCodes,
 		}, log)
 
 		builder.WriteString(content)
@@ -165,6 +166,14 @@ func CreateHttpService(root string, service *models.Service, log *utils.Logger) 
 			QueryParams:               method.QueryParams,
 			PathParams:                method.PathParams,
 			Funcs:                     map[string]any{"join": strings.Join},
+		}, log)
+		builder.WriteString(content)
+		builder.WriteString("\n")
+
+		content = checkResponseFields(&HandlerInfo{
+			HandlerName: method.Name,
+			ServiceName: service.Name,
+			RespCodes:   method.RespCodes,
 		}, log)
 		builder.WriteString(content)
 		builder.WriteString("\n")
@@ -412,7 +421,7 @@ func appendMethod(httpService *models.HTTPService, service *models.Service) {
 			last.ChildObjects.Methods = append(last.ChildObjects.Methods, models.Method{
 				UUID: uuid.NewString(),
 				Properties: models.MethodProperties{
-					Name:       method.Name,
+					Name:       fmt.Sprintf("%s_%s", method.HttpMethod, method.Name),
 					HTTPMethod: method.HttpMethod,
 					Handler:    fmt.Sprintf("Обработчик_%s%s", service.Name, method.Name),
 				},

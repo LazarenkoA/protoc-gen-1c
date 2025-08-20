@@ -26,6 +26,7 @@ func protogenServiceToOneC(service *protogen.Service) *onecmodels.Service {
 			BodyParams:  utils.GetBodyParams(method, body),
 			QueryParams: utils.GetQueryParams(method, body),
 			PathParams:  utils.GetPathParams(url),
+			RespCodes:   utils.GetRespCodes(method),
 		})
 
 		last := oneCService.Methods[len(oneCService.Methods)-1]
