@@ -1,0 +1,103 @@
+time=2025-08-20T13:42:45.866+03:00 level=INFO msg="start process"
+time=2025-08-20T13:42:45.866+03:00 level=INFO msg="generate openAPI"
+time=2025-08-20T13:42:45.872+03:00 level=INFO msg="create swagger http service"
+time=2025-08-20T13:42:45.878+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\HTTPServices\Swagger.xml
+time=2025-08-20T13:42:45.878+03:00 level=INFO msg="create common template"
+time=2025-08-20T13:42:45.879+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\CommonTemplates\swagger.xml
+time=2025-08-20T13:42:45.881+03:00 level=INFO msg="create new http service" name=CustomerService
+time=2025-08-20T13:42:45.882+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\HTTPServices\CustomerService.xml
+time=2025-08-20T13:42:45.883+03:00 level=INFO msg="create common modules"
+time=2025-08-20T13:42:45.885+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\CommonModules\CustomerServiceПереопределяемый.xml
+time=2025-08-20T13:42:45.886+03:00 level=INFO msg="create new http service" name=DealService
+time=2025-08-20T13:42:45.887+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\HTTPServices\DealService.xml
+time=2025-08-20T13:42:45.890+03:00 level=INFO msg="create common modules"
+time=2025-08-20T13:42:45.891+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\CommonModules\DealServiceПереопределяемый.xml
+time=2025-08-20T13:45:34.751+03:00 level=INFO msg="start process"
+time=2025-08-20T13:45:34.753+03:00 level=INFO msg="generate openAPI"
+time=2025-08-20T13:45:34.757+03:00 level=INFO msg="create swagger http service"
+time=2025-08-20T13:45:34.759+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\HTTPServices\Swagger.xml
+time=2025-08-20T13:45:34.761+03:00 level=INFO msg="create common template"
+time=2025-08-20T13:45:34.763+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\CommonTemplates\swagger.xml
+time=2025-08-20T13:45:34.763+03:00 level=INFO msg="create new http service" name=CustomerService
+time=2025-08-20T13:45:34.764+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\HTTPServices\CustomerService.xml
+time=2025-08-20T13:45:34.766+03:00 level=INFO msg="create common modules"
+time=2025-08-20T13:45:34.767+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\CommonModules\CustomerServiceПереопределяемый.xml
+time=2025-08-20T13:45:34.768+03:00 level=INFO msg="create new http service" name=DealService
+time=2025-08-20T13:45:34.770+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\HTTPServices\DealService.xml
+time=2025-08-20T13:45:34.771+03:00 level=INFO msg="create common modules"
+time=2025-08-20T13:45:34.774+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\CommonModules\DealServiceПереопределяемый.xml
+time=2025-08-20T13:46:48.903+03:00 level=INFO msg="start process"
+time=2025-08-20T13:46:48.904+03:00 level=INFO msg="generate openAPI"
+time=2025-08-20T13:46:48.912+03:00 level=INFO msg="create swagger http service"
+time=2025-08-20T13:46:48.914+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\HTTPServices\Swagger.xml
+time=2025-08-20T13:46:48.917+03:00 level=INFO msg="create common template"
+time=2025-08-20T13:46:48.918+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\CommonTemplates\swagger.xml
+time=2025-08-20T13:46:48.919+03:00 level=INFO msg="create new http service" name=CustomerService
+time=2025-08-20T13:46:48.920+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\HTTPServices\CustomerService.xml
+time=2025-08-20T13:46:48.921+03:00 level=INFO msg="create common modules"
+time=2025-08-20T13:46:48.923+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\CommonModules\CustomerServiceПереопределяемый.xml
+time=2025-08-20T13:46:48.924+03:00 level=INFO msg="create new http service" name=DealService
+time=2025-08-20T13:46:48.925+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\HTTPServices\DealService.xml
+time=2025-08-20T13:46:48.926+03:00 level=INFO msg="create common modules"
+time=2025-08-20T13:46:48.929+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\CommonModules\DealServiceПереопределяемый.xml
+time=2025-08-20T13:48:12.850+03:00 level=INFO msg="start process"
+time=2025-08-20T13:48:12.852+03:00 level=INFO msg="generate openAPI"
+time=2025-08-20T13:48:12.855+03:00 level=INFO msg="create swagger http service"
+time=2025-08-20T13:48:12.859+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\HTTPServices\Swagger.xml
+time=2025-08-20T13:48:12.861+03:00 level=INFO msg="create common template"
+time=2025-08-20T13:48:12.864+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\CommonTemplates\swagger.xml
+time=2025-08-20T13:48:12.864+03:00 level=INFO msg="create new http service" name=CustomerService
+time=2025-08-20T13:48:12.865+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\HTTPServices\CustomerService.xml
+time=2025-08-20T13:48:12.866+03:00 level=ERROR msg="parse template error: template: message:2: function \"strings\" not defined" template_name=template_required_check stack="goroutine 1 [running]:\nruntime/debug.Stack()\n\tC:/Users/Артем/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.6.windows-amd64/src/runtime/debug/stack.go:26 +0x5e\n1c-grpc-gateway/pkg/utils.(*stackHandler).Handle(_, {_, _}, {{0xc22187db33a4111c, 0x235b5e1, 0x14d9780}, {0xc000034b90, 0x49}, 0x8, 0xb2bcbf, ...})\n\tD:/GIT/1c-grpc-gateway/pkg/utils/logger.go:29 +0x45\nlog/slog.(*Logger).log(0xc000043ac0, {0xf988d8, 0x151fc20}, 0x8, {0xc000034b90, 0x49}, {0xc000409b40, 0x2, 0x2})\n\tC:/Users/Артем/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.6.windows-amd64/src/log/slog/logger.go:256 +0x1e4\nlog/slog.(*Logger).Error(...)\n\tC:/Users/Артем/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.6.windows-amd64/src/log/slog/logger.go:229\n1c-grpc-gateway/oneC.checkFields(0xc0000985b0?, 0xc00007a3e0)\n\tD:/GIT/1c-grpc-gateway/oneC/func_generator.go:71 +0xaa\n1c-grpc-gateway/oneC.CreateHttpService({0xc0003cc558, 0x4}, 0xc00020d840, 0xc00007a3e0)\n\tD:/GIT/1c-grpc-gateway/oneC/md_genegator.go:172 +0x687\n1c-grpc-gateway/pkg.(*Plugin).Process(0xc000409f28, 0xc000146180)\n\tD:/GIT/1c-grpc-gateway/pkg/plugin.go:77 +0x3c7\ngoogle.golang.org/protobuf/compiler/protogen.run({0x0?, 0x0?, 0x0?, 0x7a3d8?}, 0xc00043ff30)\n\tC:/Users/Артем/go/pkg/mod/google.golang.org/protobuf@v1.36.7/compiler/protogen/protogen.go:77 +0x150\ngoogle.golang.org/protobuf/compiler/protogen.Options.Run({0x0?, 0x0?, 0x0?, 0x0?}, 0xc000098060?)\n\tC:/Users/Артем/go/pkg/mod/google.golang.org/protobuf@v1.36.7/compiler/protogen/protogen.go:55 +0x2c\nmain.main()\n\tD:/GIT/1c-grpc-gateway/cmd/main.go:18 +0x48\n"
+time=2025-08-20T13:48:12.866+03:00 level=ERROR msg="parse template error: template: message:2: function \"strings\" not defined" template_name=template_required_check stack="goroutine 1 [running]:\nruntime/debug.Stack()\n\tC:/Users/Артем/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.6.windows-amd64/src/runtime/debug/stack.go:26 +0x5e\n1c-grpc-gateway/pkg/utils.(*stackHandler).Handle(_, {_, _}, {{0xc22187db33a4111c, 0x235b5e1, 0x14d9780}, {0xc000034c80, 0x49}, 0x8, 0xb2bcbf, ...})\n\tD:/GIT/1c-grpc-gateway/pkg/utils/logger.go:29 +0x45\nlog/slog.(*Logger).log(0xc000043ac0, {0xf988d8, 0x151fc20}, 0x8, {0xc000034c80, 0x49}, {0xc000409b40, 0x2, 0x2})\n\tC:/Users/Артем/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.6.windows-amd64/src/log/slog/logger.go:256 +0x1e4\nlog/slog.(*Logger).Error(...)\n\tC:/Users/Артем/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.6.windows-amd64/src/log/slog/logger.go:229\n1c-grpc-gateway/oneC.checkFields(0xc000376580?, 0xc00007a3e0)\n\tD:/GIT/1c-grpc-gateway/oneC/func_generator.go:71 +0xaa\n1c-grpc-gateway/oneC.CreateHttpService({0xc0003cc558, 0x4}, 0xc00020d840, 0xc00007a3e0)\n\tD:/GIT/1c-grpc-gateway/oneC/md_genegator.go:172 +0x687\n1c-grpc-gateway/pkg.(*Plugin).Process(0xc000409f28, 0xc000146180)\n\tD:/GIT/1c-grpc-gateway/pkg/plugin.go:77 +0x3c7\ngoogle.golang.org/protobuf/compiler/protogen.run({0x0?, 0x0?, 0x0?, 0x7a3d8?}, 0xc00043ff30)\n\tC:/Users/Артем/go/pkg/mod/google.golang.org/protobuf@v1.36.7/compiler/protogen/protogen.go:77 +0x150\ngoogle.golang.org/protobuf/compiler/protogen.Options.Run({0x0?, 0x0?, 0x0?, 0x0?}, 0xc000098060?)\n\tC:/Users/Артем/go/pkg/mod/google.golang.org/protobuf@v1.36.7/compiler/protogen/protogen.go:55 +0x2c\nmain.main()\n\tD:/GIT/1c-grpc-gateway/cmd/main.go:18 +0x48\n"
+time=2025-08-20T13:48:12.866+03:00 level=ERROR msg="parse template error: template: message:2: function \"strings\" not defined" template_name=template_required_check stack="goroutine 1 [running]:\nruntime/debug.Stack()\n\tC:/Users/Артем/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.6.windows-amd64/src/runtime/debug/stack.go:26 +0x5e\n1c-grpc-gateway/pkg/utils.(*stackHandler).Handle(_, {_, _}, {{0xc22187db33ac41fc, 0x23de6c1, 0x14d9780}, {0xc000034d70, 0x49}, 0x8, 0xb2bcbf, ...})\n\tD:/GIT/1c-grpc-gateway/pkg/utils/logger.go:29 +0x45\nlog/slog.(*Logger).log(0xc000043ac0, {0xf988d8, 0x151fc20}, 0x8, {0xc000034d70, 0x49}, {0xc000409b40, 0x2, 0x2})\n\tC:/Users/Артем/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.6.windows-amd64/src/log/slog/logger.go:256 +0x1e4\nlog/slog.(*Logger).Error(...)\n\tC:/Users/Артем/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.6.windows-amd64/src/log/slog/logger.go:229\n1c-grpc-gateway/oneC.checkFields(0xc0002ee000?, 0xc00007a3e0)\n\tD:/GIT/1c-grpc-gateway/oneC/func_generator.go:71 +0xaa\n1c-grpc-gateway/oneC.CreateHttpService({0xc0003cc558, 0x4}, 0xc00020d840, 0xc00007a3e0)\n\tD:/GIT/1c-grpc-gateway/oneC/md_genegator.go:172 +0x687\n1c-grpc-gateway/pkg.(*Plugin).Process(0xc000409f28, 0xc000146180)\n\tD:/GIT/1c-grpc-gateway/pkg/plugin.go:77 +0x3c7\ngoogle.golang.org/protobuf/compiler/protogen.run({0x0?, 0x0?, 0x0?, 0x7a3d8?}, 0xc00043ff30)\n\tC:/Users/Артем/go/pkg/mod/google.golang.org/protobuf@v1.36.7/compiler/protogen/protogen.go:77 +0x150\ngoogle.golang.org/protobuf/compiler/protogen.Options.Run({0x0?, 0x0?, 0x0?, 0x0?}, 0xc000098060?)\n\tC:/Users/Артем/go/pkg/mod/google.golang.org/protobuf@v1.36.7/compiler/protogen/protogen.go:55 +0x2c\nmain.main()\n\tD:/GIT/1c-grpc-gateway/cmd/main.go:18 +0x48\n"
+time=2025-08-20T13:48:12.866+03:00 level=INFO msg="create common modules"
+time=2025-08-20T13:48:12.869+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\CommonModules\CustomerServiceПереопределяемый.xml
+time=2025-08-20T13:48:12.869+03:00 level=INFO msg="create new http service" name=DealService
+time=2025-08-20T13:48:12.871+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\HTTPServices\DealService.xml
+time=2025-08-20T13:48:12.872+03:00 level=ERROR msg="parse template error: template: message:2: function \"strings\" not defined" template_name=template_required_check stack="goroutine 1 [running]:\nruntime/debug.Stack()\n\tC:/Users/Артем/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.6.windows-amd64/src/runtime/debug/stack.go:26 +0x5e\n1c-grpc-gateway/pkg/utils.(*stackHandler).Handle(_, {_, _}, {{0xc22187db3401aa70, 0x2934f35, 0x14d9780}, {0xc000035360, 0x49}, 0x8, 0xb2bcbf, ...})\n\tD:/GIT/1c-grpc-gateway/pkg/utils/logger.go:29 +0x45\nlog/slog.(*Logger).log(0xc000043ac0, {0xf988d8, 0x151fc20}, 0x8, {0xc000035360, 0x49}, {0xc000409b40, 0x2, 0x2})\n\tC:/Users/Артем/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.6.windows-amd64/src/log/slog/logger.go:256 +0x1e4\nlog/slog.(*Logger).Error(...)\n\tC:/Users/Артем/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.6.windows-amd64/src/log/slog/logger.go:229\n1c-grpc-gateway/oneC.checkFields(0xc0000987e0?, 0xc00007a3e0)\n\tD:/GIT/1c-grpc-gateway/oneC/func_generator.go:71 +0xaa\n1c-grpc-gateway/oneC.CreateHttpService({0xc0003cc558, 0x4}, 0xc00044da00, 0xc00007a3e0)\n\tD:/GIT/1c-grpc-gateway/oneC/md_genegator.go:172 +0x687\n1c-grpc-gateway/pkg.(*Plugin).Process(0xc000409f28, 0xc000146180)\n\tD:/GIT/1c-grpc-gateway/pkg/plugin.go:77 +0x3c7\ngoogle.golang.org/protobuf/compiler/protogen.run({0x0?, 0x0?, 0x0?, 0x7a3d8?}, 0xc00043ff30)\n\tC:/Users/Артем/go/pkg/mod/google.golang.org/protobuf@v1.36.7/compiler/protogen/protogen.go:77 +0x150\ngoogle.golang.org/protobuf/compiler/protogen.Options.Run({0x0?, 0x0?, 0x0?, 0x0?}, 0xc000098060?)\n\tC:/Users/Артем/go/pkg/mod/google.golang.org/protobuf@v1.36.7/compiler/protogen/protogen.go:55 +0x2c\nmain.main()\n\tD:/GIT/1c-grpc-gateway/cmd/main.go:18 +0x48\n"
+time=2025-08-20T13:48:12.872+03:00 level=ERROR msg="parse template error: template: message:2: function \"strings\" not defined" template_name=template_required_check stack="goroutine 1 [running]:\nruntime/debug.Stack()\n\tC:/Users/Артем/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.6.windows-amd64/src/runtime/debug/stack.go:26 +0x5e\n1c-grpc-gateway/pkg/utils.(*stackHandler).Handle(_, {_, _}, {{0xc22187db3401aa70, 0x2934f35, 0x14d9780}, {0xc000035450, 0x49}, 0x8, 0xb2bcbf, ...})\n\tD:/GIT/1c-grpc-gateway/pkg/utils/logger.go:29 +0x45\nlog/slog.(*Logger).log(0xc000043ac0, {0xf988d8, 0x151fc20}, 0x8, {0xc000035450, 0x49}, {0xc000409b40, 0x2, 0x2})\n\tC:/Users/Артем/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.6.windows-amd64/src/log/slog/logger.go:256 +0x1e4\nlog/slog.(*Logger).Error(...)\n\tC:/Users/Артем/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.6.windows-amd64/src/log/slog/logger.go:229\n1c-grpc-gateway/oneC.checkFields(0xc000377080?, 0xc00007a3e0)\n\tD:/GIT/1c-grpc-gateway/oneC/func_generator.go:71 +0xaa\n1c-grpc-gateway/oneC.CreateHttpService({0xc0003cc558, 0x4}, 0xc00044da00, 0xc00007a3e0)\n\tD:/GIT/1c-grpc-gateway/oneC/md_genegator.go:172 +0x687\n1c-grpc-gateway/pkg.(*Plugin).Process(0xc000409f28, 0xc000146180)\n\tD:/GIT/1c-grpc-gateway/pkg/plugin.go:77 +0x3c7\ngoogle.golang.org/protobuf/compiler/protogen.run({0x0?, 0x0?, 0x0?, 0x7a3d8?}, 0xc00043ff30)\n\tC:/Users/Артем/go/pkg/mod/google.golang.org/protobuf@v1.36.7/compiler/protogen/protogen.go:77 +0x150\ngoogle.golang.org/protobuf/compiler/protogen.Options.Run({0x0?, 0x0?, 0x0?, 0x0?}, 0xc000098060?)\n\tC:/Users/Артем/go/pkg/mod/google.golang.org/protobuf@v1.36.7/compiler/protogen/protogen.go:55 +0x2c\nmain.main()\n\tD:/GIT/1c-grpc-gateway/cmd/main.go:18 +0x48\n"
+time=2025-08-20T13:48:12.872+03:00 level=INFO msg="create common modules"
+time=2025-08-20T13:48:12.873+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\CommonModules\DealServiceПереопределяемый.xml
+time=2025-08-20T13:52:53.318+03:00 level=INFO msg="start process"
+time=2025-08-20T13:52:53.320+03:00 level=INFO msg="generate openAPI"
+time=2025-08-20T13:52:53.323+03:00 level=INFO msg="create swagger http service"
+time=2025-08-20T13:52:53.329+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\HTTPServices\Swagger.xml
+time=2025-08-20T13:52:53.330+03:00 level=INFO msg="create common template"
+time=2025-08-20T13:52:53.331+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\CommonTemplates\swagger.xml
+time=2025-08-20T13:52:53.331+03:00 level=INFO msg="create new http service" name=CustomerService
+time=2025-08-20T13:52:53.332+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\HTTPServices\CustomerService.xml
+time=2025-08-20T13:52:53.334+03:00 level=INFO msg="create common modules"
+time=2025-08-20T13:52:53.335+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\CommonModules\CustomerServiceПереопределяемый.xml
+time=2025-08-20T13:52:53.336+03:00 level=INFO msg="create new http service" name=DealService
+time=2025-08-20T13:52:53.337+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\HTTPServices\DealService.xml
+time=2025-08-20T13:52:53.338+03:00 level=INFO msg="create common modules"
+time=2025-08-20T13:52:53.340+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\CommonModules\DealServiceПереопределяемый.xml
+time=2025-08-20T13:54:00.005+03:00 level=INFO msg="start process"
+time=2025-08-20T13:54:00.005+03:00 level=INFO msg="generate openAPI"
+time=2025-08-20T13:54:00.008+03:00 level=INFO msg="create swagger http service"
+time=2025-08-20T13:54:00.009+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\HTTPServices\Swagger.xml
+time=2025-08-20T13:54:00.010+03:00 level=INFO msg="create common template"
+time=2025-08-20T13:54:00.011+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\CommonTemplates\swagger.xml
+time=2025-08-20T13:54:00.012+03:00 level=INFO msg="create new http service" name=CustomerService
+time=2025-08-20T13:54:00.013+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\HTTPServices\CustomerService.xml
+time=2025-08-20T13:54:00.015+03:00 level=INFO msg="create common modules"
+time=2025-08-20T13:54:00.017+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\CommonModules\CustomerServiceПереопределяемый.xml
+time=2025-08-20T13:54:00.017+03:00 level=INFO msg="create new http service" name=DealService
+time=2025-08-20T13:54:00.020+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\HTTPServices\DealService.xml
+time=2025-08-20T13:54:00.022+03:00 level=INFO msg="create common modules"
+time=2025-08-20T13:54:00.023+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\CommonModules\DealServiceПереопределяемый.xml
+time=2025-08-20T13:54:05.510+03:00 level=INFO msg="start process"
+time=2025-08-20T13:54:05.510+03:00 level=INFO msg="generate openAPI"
+time=2025-08-20T13:54:05.513+03:00 level=INFO msg="create swagger http service"
+time=2025-08-20T13:54:05.514+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\HTTPServices\Swagger.xml
+time=2025-08-20T13:54:05.514+03:00 level=INFO msg="create common template"
+time=2025-08-20T13:54:05.515+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\CommonTemplates\swagger.xml
+time=2025-08-20T13:54:05.516+03:00 level=INFO msg="create new http service" name=CustomerService
+time=2025-08-20T13:54:05.517+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\HTTPServices\CustomerService.xml
+time=2025-08-20T13:54:05.518+03:00 level=INFO msg="create common modules"
+time=2025-08-20T13:54:05.519+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\CommonModules\CustomerServiceПереопределяемый.xml
+time=2025-08-20T13:54:05.520+03:00 level=INFO msg="create new http service" name=DealService
+time=2025-08-20T13:54:05.520+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\HTTPServices\DealService.xml
+time=2025-08-20T13:54:05.522+03:00 level=INFO msg="create common modules"
+time=2025-08-20T13:54:05.524+03:00 level=DEBUG msg="store metaDataObject" confFile=D:\1\CommonModules\DealServiceПереопределяемый.xml

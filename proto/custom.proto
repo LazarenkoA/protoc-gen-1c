@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package test;
+
+import "google/protobuf/descriptor.proto";
+
+option go_package = "./gen";
+
+extend google.protobuf.FileOptions {
+  string configuration_catalog = 50001;
+}
+
+extend google.protobuf.MethodOptions {
+  CustomChecker allow = 50001;
+}
+
+extend google.protobuf.ServiceOptions {
+  string base_url = 50001;
+}
+
+extend google.protobuf.FieldOptions {
+  bool required = 50001;
+}
+
+message CustomChecker {
+  repeated string allowed_roles = 1;
+}

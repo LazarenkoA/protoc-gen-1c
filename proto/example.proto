@@ -1,0 +1,129 @@
+syntax = "proto3";
+
+package test;
+
+import "custom.proto";
+import "google/api/annotations.proto";
+//import "google/protobuf/empty.proto"; // если нужно пустое сообщение/ответ (google.protobuf.Empty)
+//import "google/protobuf/timestamp.proto"; // для даты время например google.protobuf.Timestamp date = 1;
+
+option go_package = "./gen";
+option (configuration_catalog)  = "D:\\1";
+
+// ===== Сервисы =====
+
+// Сервис для работы с клиентами
+service CustomerService {
+  option (base_url) = "customer";
+
+  // Создать клиента
+  rpc CreateCustomer (CreateCustomerRequest) returns (CreateCustomerResponse) {
+    option (google.api.http) = {
+      post: "/v1/customers"
+      body: "*" // Тело запроса целиком маппится на CreateCustomerRequest
+    };
+  }
+
+  // Получить клиента по ID
+  rpc GetCustomer (GetCustomerRequest) returns (Customer) {
+    option (google.api.http) = {
+      get: "/v1/customers/{id}"
+    };
+  }
+
+  // Получить список клиентов (с пагинацией)
+  rpc ListCustomers (ListCustomersRequest) returns (ListCustomersResponse) {
+    option (google.api.http) = {
+      get: "/v1/customers"
+    };
+  }
+}
+
+// Сервис для работы со сделками
+service DealService {
+  option (base_url) = "deal";
+
+  // Создать сделку
+  rpc CreateDeal (CreateDealRequest) returns (CreateDealResponse) {
+    option (google.api.http) = {
+      post: "/v1/deals"
+      body: "*" // Всё тело запроса маппится на CreateDealRequest
+    };
+  }
+
+  // Получить список сделок клиента
+  rpc ListDeals (ListDealsRequest) returns (ListDealsResponse) {
+    option (google.api.http) = {
+      get: "/v1/customers/{customer_id}/deals"
+    };
+  }
+}
+
+// ===== Сообщения (DTO) =====
+
+// Модель клиента
+message Customer {
+  string id = 1 [(required) = true];      // Уникальный идентификатор клиента
+  string name = 2;    // Имя или название компании
+  string email = 3 [(required) = true];   // Email клиента
+  string phone = 4;   // Телефон клиента
+}
+
+// Запрос на создание клиента
+message CreateCustomerRequest {
+  string name = 1;    // Имя или название компании
+  string email = 2;   // Email клиента
+  string phone = 3;   // Телефон клиента
+}
+
+// Ответ на создание клиента
+message CreateCustomerResponse {
+  Customer customer = 1 [(required) = true]; // Созданный клиент
+}
+
+// Запрос на получение клиента
+message GetCustomerRequest {
+  string id = 1 [(required) = true]; // ID клиента
+}
+
+// Запрос на список клиентов (с пагинацией)
+message ListCustomersRequest {
+  int32 page_size = 1;    // Количество элементов на странице
+  string page_token = 2;  // Токен для получения следующей страницы
+}
+
+// Ответ со списком клиентов
+message ListCustomersResponse {
+  repeated Customer customers = 1 [(required) = true]; // Список клиентов
+  string next_page_token = 2;      // Токен для следующей страницы
+}
+
+// Модель сделки
+message Deal {
+  string id = 1 [(required) = true];         // Уникальный ID сделки
+  string customer_id = 2 [(required) = true]; // ID клиента, с которым связана сделка
+  string title = 3;       // Название сделки
+  double amount = 4;      // Сумма сделки
+}
+
+// Запрос на создание сделки
+message CreateDealRequest {
+  string customer_id = 1 [(required) = true]; // ID клиента
+  string title = 2;       // Название сделки
+  double amount = 3;      // Сумма сделки
+}
+
+// Ответ на создание сделки
+message CreateDealResponse {
+  Deal deal = 1 [(required) = true]; // Созданная сделка
+}
+
+// Запрос на список сделок клиента
+message ListDealsRequest {
+  string customer_id = 1 [(required) = true]; // ID клиента
+}
+
+// Ответ со списком сделок
+message ListDealsResponse {
+  repeated Deal deals = 1; // Список сделок клиента
+}
