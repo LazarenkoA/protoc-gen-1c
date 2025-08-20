@@ -8,9 +8,8 @@ lint:
   use:
     - DEFAULT  # базовый набор линтинга: стиль, порядок и т.п.
 
-build:
-  roots:
-    - proto
+modules:
+  - path: proto
 
 breaking:
   use:
