@@ -16,9 +16,5 @@ lib
 
 # Dependency directories (remove the comment below to include it)
 vendor/
-node_mos_ru/node_modules
-energosbyt_test.yaml
-verified.yaml
-meter_bot
-data
-meter_readings.tar
+*.log
+swagger/swaggerUI/swagger-ui

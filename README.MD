@@ -55,7 +55,7 @@ buf breaking --against '.git#branch=master'
 ```
 
 ### protolint
-`protolint` еще один интересный линтер для protobuf и он куда проще в настройке чем buf.
+[protolint](https://github.com/yoheimuta/protolint) еще один интересный линтер для protobuf и он куда проще в настройке чем buf.
 поддерживает флаг `-fix` для автоматического исправления замечаний по стилю. 
 
 пример:
