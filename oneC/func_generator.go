@@ -2,9 +2,8 @@ package oneC
 
 import (
 	"1c-grpc-gateway/pkg/utils"
+	"embed"
 	"github.com/pkg/errors"
-	"io"
-	"os"
 	"strings"
 	"text/template"
 )
@@ -23,8 +22,11 @@ type HandlerInfo struct {
 	Funcs                     template.FuncMap
 }
 
+//go:embed templates/*
+var templatesFS embed.FS
+
 func getCommonModuleContent(info *HandlerInfo, log *utils.Logger) string {
-	content, err := executeTemplate(info, "oneC/templates/template_common_module")
+	content, err := executeTemplate(info, "template_common_module")
 	if err != nil {
 		log.Error(err.Error(), "template_name", "template_common_module")
 	}
@@ -33,7 +35,7 @@ func getCommonModuleContent(info *HandlerInfo, log *utils.Logger) string {
 }
 
 func getHttpHandler(info *HandlerInfo, log *utils.Logger) string {
-	content, err := executeTemplate(info, "oneC/templates/template_method_handler")
+	content, err := executeTemplate(info, "template_method_handler")
 	if err != nil {
 		log.Error(err.Error(), "template_name", "template_method_handler")
 	}
@@ -42,7 +44,7 @@ func getHttpHandler(info *HandlerInfo, log *utils.Logger) string {
 }
 
 func swaggerHandler(info *HandlerInfo, log *utils.Logger) string {
-	content, err := executeTemplate(info, "oneC/templates/swagger_service_handler")
+	content, err := executeTemplate(info, "swagger_service_handler")
 	if err != nil {
 		log.Error(err.Error(), "template_name", "swagger_service_handler")
 	}
@@ -51,7 +53,7 @@ func swaggerHandler(info *HandlerInfo, log *utils.Logger) string {
 }
 
 func checkRequestFields(info *HandlerInfo, log *utils.Logger) string {
-	content, err := executeTemplate(info, "oneC/templates/template_request_check")
+	content, err := executeTemplate(info, "template_request_check")
 	if err != nil {
 		log.Error(err.Error(), "template_name", "template_request_check")
 	}
@@ -60,7 +62,7 @@ func checkRequestFields(info *HandlerInfo, log *utils.Logger) string {
 }
 
 func checkResponseFields(info *HandlerInfo, log *utils.Logger) string {
-	content, err := executeTemplate(info, "oneC/templates/template_response_check")
+	content, err := executeTemplate(info, "template_response_check")
 	if err != nil {
 		log.Error(err.Error(), "template_name", "template_response_check")
 	}
@@ -68,20 +70,14 @@ func checkResponseFields(info *HandlerInfo, log *utils.Logger) string {
 	return content
 }
 
-func executeTemplate(info *HandlerInfo, tmplPath string) (string, error) {
-	tmplFile, err := os.Open(tmplPath)
-	if err != nil {
-		return "", err
-	}
-
-	tmpl, _ := io.ReadAll(tmplFile)
-	t, err := template.New("message").Funcs(info.Funcs).Parse(string(tmpl))
+func executeTemplate(info *HandlerInfo, name string) (string, error) {
+	t, err := template.New("").Funcs(info.Funcs).ParseFS(templatesFS, "templates/"+name)
 	if err != nil {
 		return "", errors.Wrap(err, "parse template error")
 	}
 
 	var sb strings.Builder
-	err = t.Execute(&sb, info)
+	err = t.ExecuteTemplate(&sb, name, info)
 	if err != nil {
 		return "", errors.Wrap(err, "execute template error")
 	}
