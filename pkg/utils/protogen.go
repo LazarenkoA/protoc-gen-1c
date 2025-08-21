@@ -1,13 +1,13 @@
 package utils
 
 import (
-	custompb "1c-grpc-gateway/proto/gen"
 	"google.golang.org/genproto/googleapis/api/annotations"
 	"google.golang.org/protobuf/compiler/protogen"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/runtime/protoimpl"
 	"google.golang.org/protobuf/types/descriptorpb"
 	"net/http"
+	custompb "protoc-gen-1c/proto/gen"
 	"regexp"
 )
 

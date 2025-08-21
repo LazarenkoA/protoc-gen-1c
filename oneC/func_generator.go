@@ -1,9 +1,9 @@
 package oneC
 
 import (
-	"1c-grpc-gateway/pkg/utils"
 	"embed"
 	"github.com/pkg/errors"
+	"protoc-gen-1c/pkg/utils"
 	"strings"
 	"text/template"
 )

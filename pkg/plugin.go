@@ -1,15 +1,15 @@
 package pkg
 
 import (
-	"1c-grpc-gateway/oneC"
-	"1c-grpc-gateway/pkg/utils"
-	custompb "1c-grpc-gateway/proto/gen"
-	"1c-grpc-gateway/swagger"
 	"github.com/pkg/errors"
 	"google.golang.org/protobuf/compiler/protogen"
 	"google.golang.org/protobuf/proto"
 	"log/slog"
 	"os"
+	"protoc-gen-1c/oneC"
+	"protoc-gen-1c/pkg/utils"
+	custompb "protoc-gen-1c/proto/gen"
+	"protoc-gen-1c/swagger"
 	"strings"
 )
 

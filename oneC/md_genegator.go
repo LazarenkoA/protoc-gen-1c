@@ -1,8 +1,6 @@
 package oneC
 
 import (
-	"1c-grpc-gateway/oneC/models"
-	"1c-grpc-gateway/pkg/utils"
 	"encoding/xml"
 	"fmt"
 	"github.com/beevik/etree"
@@ -13,6 +11,8 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"protoc-gen-1c/oneC/models"
+	"protoc-gen-1c/pkg/utils"
 	"strings"
 )
 

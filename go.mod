@@ -1,4 +1,4 @@
-module 1c-grpc-gateway
+module protoc-gen-1c
 
 go 1.24.6
 

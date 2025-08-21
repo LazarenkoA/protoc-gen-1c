@@ -1,11 +1,11 @@
 package pkg
 
 import (
-	onecmodels "1c-grpc-gateway/oneC/models"
-	"1c-grpc-gateway/pkg/utils"
-	custompb "1c-grpc-gateway/proto/gen"
 	"github.com/samber/lo"
 	"google.golang.org/protobuf/compiler/protogen"
+	onecmodels "protoc-gen-1c/oneC/models"
+	"protoc-gen-1c/pkg/utils"
+	custompb "protoc-gen-1c/proto/gen"
 )
 
 func protogenServiceToOneC(service *protogen.Service) *onecmodels.Service {
