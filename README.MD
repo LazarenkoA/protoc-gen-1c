@@ -34,7 +34,7 @@
    ```bash
    go build -o protoc-gen-1c.exe ./cmd/main.go
    # или
-   go install github.com/LazarenkoA/protoc-gen-1c@latest
+   go install github.com/LazarenkoA/protoc-gen-1c/cmd@latest
    ```
 4. Создайте свой `.proto` файл (см. [example.proto](/proto/example.proto)). 
 Рядом должен лежать [custom.proto](/proto/custom.proto), который нужно подключить через `import`.
