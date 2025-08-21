@@ -1,8 +1,8 @@
 package main
 
 import (
+	protogenOnes "github.com/LazarenkoA/protoc-gen-1c/pkg"
 	"google.golang.org/protobuf/compiler/protogen"
-	protogenOnes "protoc-gen-1c/pkg"
 )
 
 // protoc -I="D:\protobuf\include" -I=".\proto" -I="D:\GIT\googleapis" --go_out=".\proto" example.proto custom.proto

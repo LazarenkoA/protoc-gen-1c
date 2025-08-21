@@ -2,8 +2,8 @@ package oneC
 
 import (
 	"embed"
+	"github.com/LazarenkoA/protoc-gen-1c/pkg/utils"
 	"github.com/pkg/errors"
-	"protoc-gen-1c/pkg/utils"
 	"strings"
 	"text/template"
 )

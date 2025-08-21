@@ -1,4 +1,4 @@
-module protoc-gen-1c
+module github.com/LazarenkoA/protoc-gen-1c
 
 go 1.24.6
 

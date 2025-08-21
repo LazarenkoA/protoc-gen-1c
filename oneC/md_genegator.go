@@ -3,6 +3,8 @@ package oneC
 import (
 	"encoding/xml"
 	"fmt"
+	"github.com/LazarenkoA/protoc-gen-1c/oneC/models"
+	"github.com/LazarenkoA/protoc-gen-1c/pkg/utils"
 	"github.com/beevik/etree"
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
@@ -11,8 +13,6 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
-	"protoc-gen-1c/oneC/models"
-	"protoc-gen-1c/pkg/utils"
 	"strings"
 )
 

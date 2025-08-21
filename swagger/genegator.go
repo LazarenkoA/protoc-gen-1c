@@ -1,6 +1,8 @@
 package swagger
 
 import (
+	"github.com/LazarenkoA/protoc-gen-1c/pkg/utils"
+	custompb "github.com/LazarenkoA/protoc-gen-1c/proto/gen"
 	"github.com/getkin/kin-openapi/openapi3"
 	"github.com/google/gnostic/cmd/protoc-gen-openapi/generator"
 	"github.com/pkg/errors"
@@ -8,8 +10,6 @@ import (
 	"gopkg.in/yaml.v3"
 	"maps"
 	"net/http"
-	"protoc-gen-1c/pkg/utils"
-	custompb "protoc-gen-1c/proto/gen"
 	"slices"
 	"strconv"
 )

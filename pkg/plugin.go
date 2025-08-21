@@ -1,15 +1,15 @@
 package pkg
 
 import (
+	"github.com/LazarenkoA/protoc-gen-1c/oneC"
+	"github.com/LazarenkoA/protoc-gen-1c/pkg/utils"
+	custompb "github.com/LazarenkoA/protoc-gen-1c/proto/gen"
+	"github.com/LazarenkoA/protoc-gen-1c/swagger"
 	"github.com/pkg/errors"
 	"google.golang.org/protobuf/compiler/protogen"
 	"google.golang.org/protobuf/proto"
 	"log/slog"
 	"os"
-	"protoc-gen-1c/oneC"
-	"protoc-gen-1c/pkg/utils"
-	custompb "protoc-gen-1c/proto/gen"
-	"protoc-gen-1c/swagger"
 	"strings"
 )
 
